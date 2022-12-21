@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './modules/shared/views/not-found/not-found.component';
 import { TaskAppRoutes } from './modules/shared/enums/TaskAppRoutes';
 import { AuthorizedGuard } from './modules/shared/guards/authorized.guard';
 import { UnauthorizedGuard } from './modules/shared/guards/unauthorized.guard';
@@ -17,6 +18,14 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/task/task.module').then((m) => m.TaskModule),
     canActivate: [UnauthorizedGuard],
+  },
+  {
+    path: '**',
+    redirectTo: TaskAppRoutes.NotFound,
+  },
+  {
+    path: TaskAppRoutes.NotFound,
+    component: NotFoundComponent,
   },
 ];
 
