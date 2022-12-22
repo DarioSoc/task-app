@@ -22,10 +22,12 @@ export class TaskEditComponent implements OnInit {
 
   ngOnInit() {
     const taskId = this.route.snapshot.params['id'];
+
     if (taskId) {
       this.task = this.taskService.getTaskById(taskId);
       return;
     }
+
     this.snackBar.open('Unable to find selected task', 'close', {
       duration: 3000,
     });
@@ -35,12 +37,14 @@ export class TaskEditComponent implements OnInit {
     this.taskService.saveTask({
       ...updatedTask,
       id: this.task?.id,
-      updated_timestamp: new Date().toISOString(),
-      created_timestamp: this.task?.created_timestamp,
+      updatedTimestamp: new Date().toISOString(),
+      createdTimestamp: this.task?.createdTimestamp,
     });
+
     this.snackBar.open('Task successfully updated.', 'close', {
       duration: 3000,
     });
+
     this.router.navigate([TaskAppRoutes.ListPage]);
   }
 }

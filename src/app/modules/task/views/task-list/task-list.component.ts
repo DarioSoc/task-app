@@ -11,8 +11,8 @@ import { TaskService } from '../../services/task.service';
   templateUrl: './task-list.component.html',
 })
 export class TaskListComponent implements OnInit {
-  tasksInProgress?: Task[];
-  tasksCompleted?: Task[];
+  inProgressTasks?: Task[];
+  completedTasks?: Task[];
 
   constructor(
     private readonly authService: AuthService,
@@ -37,16 +37,19 @@ export class TaskListComponent implements OnInit {
 
   handleTaskDelete(taskId: string) {
     this.taskService.deleteTaskById(taskId);
+
     this.handleGetTasks();
+
     this.snackBar.open('Task successfully deleted.', 'close', {
       duration: 2000,
     });
   }
 
   handleGetTasks() {
-    const { tasksInProgress, tasksCompleted } =
+    const { inProgressTasks, completedTasks } =
       this.taskService.getFilteredTasks();
-    this.tasksInProgress = tasksInProgress;
-    this.tasksCompleted = tasksCompleted;
+
+    this.inProgressTasks = inProgressTasks;
+    this.completedTasks = completedTasks;
   }
 }

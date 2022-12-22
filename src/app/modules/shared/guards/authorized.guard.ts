@@ -16,6 +16,7 @@ export class AuthorizedGuard implements CanActivate {
     if (this.authService.checkUserAuthState()) {
       return this.router.navigate([TaskAppRoutes.ListPage]);
     }
+
     return true;
   }
 }

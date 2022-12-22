@@ -17,11 +17,13 @@ export class AuthService {
     if (email !== this.email || password !== this.password) {
       return false;
     }
+
     if (isLoginPersistenceEnabled) {
       localStorage.setItem(this.authStorageKey, JSON.stringify(true));
     } else {
       sessionStorage.setItem(this.authStorageKey, JSON.stringify(true));
     }
+
     return true;
   }
 
@@ -33,9 +35,11 @@ export class AuthService {
   checkUserAuthState() {
     const localStorageState = localStorage.getItem(this.authStorageKey);
     const sessionStorageState = sessionStorage.getItem(this.authStorageKey);
+
     if (localStorageState !== null || sessionStorageState !== null) {
       return true;
     }
+
     return false;
   }
 }

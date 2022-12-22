@@ -20,11 +20,13 @@ export class TaskAddComponent {
   handleFormSubmit(task: Task) {
     this.taskService.saveTask({
       ...task,
-      created_timestamp: new Date().toISOString(),
+      createdTimestamp: new Date().toISOString(),
     });
+
     this.snackBar.open('Task successfully added.', 'close', {
       duration: 3000,
     });
+
     this.router.navigate([TaskAppRoutes.ListPage]);
   }
 }

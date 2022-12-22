@@ -1,6 +1,6 @@
 <app-list-layout
-  [completedTasks]="tasksCompleted"
-  [inProgressTasks]="tasksInProgress"
+  [completedTasks]="completedTasks"
+  [inProgressTasks]="inProgressTasks"
   (tasksUpdated)="handleTasksUpdate($event)"
   (taskDelete)="handleTaskDelete($event)"
   (signOut)="handleSignOut()"

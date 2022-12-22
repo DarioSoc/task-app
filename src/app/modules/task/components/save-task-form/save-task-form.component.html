@@ -14,7 +14,11 @@
 
   <mat-form-field class="add-task-form-input" appearance="fill">
     <mat-label>Description</mat-label>
-    <textarea matInput formControlName="description"></textarea>
+    <textarea
+      matInput
+      class="textarea-input"
+      formControlName="description"
+    ></textarea>
     <mat-error *ngIf="description?.hasError('required')"
       >This field is <strong>required</strong></mat-error
     >

@@ -4,7 +4,7 @@ export interface Task {
   description: string;
   isCompleted: boolean;
   type: string;
-  created_timestamp?: string;
-  updated_timestamp?: string;
-  completed_timestamp?: string;
+  createdTimestamp?: string;
+  updatedTimestamp?: string;
+  completedTimestamp?: string;
 }

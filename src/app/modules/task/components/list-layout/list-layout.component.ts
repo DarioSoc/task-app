@@ -34,12 +34,13 @@ export class ListLayoutComponent {
       );
       if (event.item.data['isCompleted']) {
         event.item.data['isCompleted'] = false;
-        event.item.data['completed_timestamp'] = undefined;
+        event.item.data['completedTimestamp'] = undefined;
       } else {
         event.item.data['isCompleted'] = true;
-        event.item.data['completed_timestamp'] = new Date().toISOString();
+        event.item.data['completedTimestamp'] = new Date().toISOString();
       }
     }
+
     const newTaskList = this.inProgressTasks?.concat(this.completedTasks!);
     this.tasksUpdated.emit(newTaskList);
   }
@@ -51,6 +52,7 @@ export class ListLayoutComponent {
     ) {
       return true;
     }
+
     return false;
   }
 

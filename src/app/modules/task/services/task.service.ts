@@ -23,6 +23,7 @@ export class TaskService {
 
   saveTask(task: Task) {
     const tasks = this.getTasks();
+
     if (!task.id) {
       task.id = this.generateRandomId();
       tasks.push(task);
@@ -32,6 +33,7 @@ export class TaskService {
       );
       tasks[taskIndex] = task;
     }
+
     localStorage.setItem(this.taskStorageKey, JSON.stringify(tasks));
   }
 
@@ -41,6 +43,7 @@ export class TaskService {
       (filteredTask) => filteredTask.id === taskId
     );
     tasks.splice(taskIndex, 1);
+
     localStorage.setItem(this.taskStorageKey, JSON.stringify(tasks));
   }
 
@@ -55,9 +58,10 @@ export class TaskService {
 
   getFilteredTasks() {
     const allTasks = this.getTasks();
+
     return {
-      tasksInProgress: allTasks.filter((task) => !task.isCompleted),
-      tasksCompleted: allTasks.filter((task) => task.isCompleted),
+      inProgressTasks: allTasks.filter((task) => !task.isCompleted),
+      completedTasks: allTasks.filter((task) => task.isCompleted),
     };
   }
 }

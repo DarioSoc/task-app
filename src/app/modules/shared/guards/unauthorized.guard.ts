@@ -16,6 +16,7 @@ export class UnauthorizedGuard implements CanActivate {
     if (!this.authService.checkUserAuthState()) {
       return this.router.navigate([TaskAppRoutes.SignInPage]);
     }
+
     return true;
   }
 }

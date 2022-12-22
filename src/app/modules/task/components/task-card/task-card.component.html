@@ -40,13 +40,13 @@
       {{ task?.description }}
     </p>
     <p class="task-created-timestamp">
-      Created at: {{ task?.created_timestamp | date: 'medium' }}
+      Created at: {{ task?.createdTimestamp | date: 'medium' }}
     </p>
-    <p class="task-updated-timestamp" *ngIf="task?.updated_timestamp">
-      Updated at: {{ task?.updated_timestamp | date: 'medium' }}
+    <p class="task-updated-timestamp" *ngIf="task?.updatedTimestamp">
+      Updated at: {{ task?.updatedTimestamp | date: 'medium' }}
     </p>
-    <p class="task-updated-timestamp" *ngIf="task?.completed_timestamp">
-      Completed at: {{ task?.completed_timestamp | date: 'medium' }}
+    <p class="task-updated-timestamp" *ngIf="task?.completedTimestamp">
+      Completed at: {{ task?.completedTimestamp | date: 'medium' }}
     </p>
   </mat-card-content>
 </mat-card>

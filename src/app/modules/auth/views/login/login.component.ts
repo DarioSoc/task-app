@@ -24,6 +24,7 @@ export class LoginComponent {
       });
       return;
     }
+
     this.router.navigate([TaskAppRoutes.ListPage]);
   }
 }
